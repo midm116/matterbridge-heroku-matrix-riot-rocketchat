@@ -10,6 +10,8 @@ MATTERBRIDGE_VERSION="$(cat $ENV_DIR/MATTERBRIDGE_VERSION)"
 MATTERBRIDGE_URL="https://github.com/42wim/matterbridge/releases/download/$MATTERBRIDGE_VERSION/matterbridge-linux-amd64"
 
 echo "-----> Downloading Matterbridge"
+echo "$MATTERBRIDGE_URL"
+
 cd $BUILD_DIR
 curl -s -L $MATTERBRIDGE_URL -o matterbridge
 chmod +x matterbridge
