@@ -1,12 +1,12 @@
 {
   "name": "Matterbridge-Heroku",
   "description": "Deploy Matterbridge to Heroku",
-  "repository": "https://github.com/cadecairos/matterbridge-heroku",
-  "keywords": ["mattermost", "matterbridge", "IRC"],
+  "repository": "https://github.com/shawntabrizi/matterbridge-heroku",
+  "keywords": ["matrix", "riot", "matterbridge", "rocketchat"],
   "success_url": "/",
   "buildpacks": [
     {
-      "url": "http://github.com/cadecairos/matterbridge-heroku.git#master"
+      "url": "http://github.com/shawntabrizi/matterbridge-heroku.git#master"
     }
   ],
   "env": {
@@ -14,99 +14,37 @@
        "description": "Version of matterbridge to download and deploy",
        "value": "0.10.2"
     },
-    "IRC_SERVER": {
-      "description": "The IRC server (including port) to connect to",
-      "value": "irc.mozilla.org:6697"
+    "ROCKETCHAT_WEBHOOK_URL": {
+      "description": "Url is your incoming webhook url as specified in rocketchat. Read https://rocket.chat/docs/administrator-guides/integrations/#how-to-create-a-new-incoming-webhook. See administration - integrations - new integration - incoming webhook.",
+      "value": "https://yourdomain/hooks/yourhookkey"
     },
-    "IRC_NICK": {
-      "description": "The IRC nick of the bot",
-      "value": "matterbot"
+    "ROCKETCHAT_WEBHOOK_BIND_ADDRESS": {
+      "description": "Address to listen on for outgoing webhook requests from rocketchat. See administration - integrations - new integration - outgoing webhook",
+      "value": "0.0.0.0:9999"
     },
-    "IRC_USE_TLS": {
-      "description": "Connect to IRC with TLS",
-      "value": "true"
+    "ROCKETCHAT_NICK": {
+      "description": "Nickname for RocketChat bot",
+      "value": "rocket.cat"
     },
-    "IRC_USE_SASL": {
-      "description": "Authenticate using SASL",
-      "value": "true"
-    },
-    "IRC_SKIP_TLS_VERIFY": {
-      "description": "Don't verify TLS certificate from server",
-      "value": "false"
-    },
-    "IRC_NICKSERV_NICK": {
-      "description": "NickServ account name",
-      "value": "matterbot"
-    },
-    "IRC_NICKSERV_PASSWORD": {
-      "description": "NickServ account pasword",
-      "value": ""
-    },
-    "IRC_REMOTE_NICK_FORMAT": {
-      "description": "The IRC nick of the bot",
+    "ROCKETCHAT_REMOTE_NICK_FORMAT": {
+      "description": "The format string for messages on RocketChat",
       "value": "[{PROTOCOL}] <{NICK}> "
     },
-    "IRC_IGNORE_NICKS": {
-      "description": "space separated list of nicks to ignore when bridging irc messages to mattermost",
-      "value": "",
-      "required": false
+    "MATRIX_SERVER": {
+      "description": "Server is your homeserver (eg https://matrix.org)",
+      "value": "https://matrix.org"
     },
-    "MATTERMOST_SERVER": {
-      "description": "The URL of the mattermost server",
-      "value": ""
+    "MATRIX_LOGIN": {
+      "description": "Login of your bot. Use a dedicated user for this and not your own! Messages sent from this user will not be relayed to avoid loops.",
+      "value": "yourlogin"
     },
-    "MATTERMOST_TEAM": {
-      "description": "Mattermost team to connect to",
-      "value": ""
+    "MATRIX_PASSWORD": {
+      "description": "Password of your bot.",
+      "value": "yourpass"
     },
-    "MATTERMOST_BOT_LOGIN": {
-      "description": "Mattermost bot username",
-      "value": ""
-    },
-    "MATTERMOST_BOT_PASSWORD": {
-      "description": "Mattermost Bot password",
-      "value": ""
-    },
-    "MATTERMOST_NO_TLS": {
-      "description": "Use http to connect to Mattermost",
-      "value": "false"
-    },
-    "MATTERMOST_SKIP_TLS_VERIFY": {
-      "description": "Don't verify the mattermost server's certificate",
-      "value": "false"
-    },
-    "MATTERMOST_SHOW_JOIN_PART": {
-      "description": "Show join/part messages",
-      "value": "false"
-    },
-    "MATTERMOST_PREFIX_MSG_WITH_NICK": {
-      "description": "Prefix the messages with the remote users nick",
-      "value": "false"
-    },
-    "MATTERMOST_REMOTE_NICK_FORMAT": {
+    "MATRIX_REMOTE_NICK_FORMAT": {
       "description": "Format string for messages",
       "value": "[{PROTOCOL}] <{NICK}> "
-    },
-    "MATTERMOST_NICK_FORMATTER": {
-      "description": "How to display nicklist - 'table' or 'plain'",
-      "value": "plain"
-    },
-    "MATTERMOST_NICKS_PER_ROW": {
-      "description": "number of nicks to show per row",
-      "value": "4"
-    },
-    "MATTERMOST_IGNORE_NICKS": {
-      "description": "Space separated list of nicks whose messages should not be bridged",
-      "value": "",
-      "required": false
-    },
-    "IRC_CHANNEL": {
-      "description": "IRC channel to bridge",
-      "value": ""
-    },
-    "MATTERMOST_CHANNEL": {
-      "description": "Mattermost channel to bridge",
-      "value": ""
     }
   }
 }
