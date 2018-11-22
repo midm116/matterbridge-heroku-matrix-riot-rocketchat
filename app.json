@@ -12,7 +12,7 @@
   "env": {
     "MATTERBRIDGE_VERSION": {
        "description": "Version of matterbridge to download and deploy",
-       "value": "0.10.2"
+       "value": "v1.12.0"
     },
     "ROCKETCHAT_WEBHOOK_URL": {
       "description": "Url is your incoming webhook url as specified in rocketchat. Read https://rocket.chat/docs/administrator-guides/integrations/#how-to-create-a-new-incoming-webhook. See administration - integrations - new integration - incoming webhook.",
